@@ -4,6 +4,8 @@ namespace Inheritance
 {
     class Program
     {
+        private static Animal myReptile;
+
         static void Main(string[] args)
         {
             // TODO Be sure to follow best practice when creating your classes
@@ -16,10 +18,34 @@ namespace Inheritance
             // give this class 4 members that are specific to Bird
             // Set this class to inherit from your Animal Class
 
+            var myBird = new Bird();
+            myBird.WingColor = "blue";
+            myBird.CanFly = true;
+            myBird.WillMigrate = true;
+            myBird.BeakLength = 2.2;
+
+
             // Create a class Reptile
             // give this class 4 members that are specific to Reptile
             // Set this class to inherit from your Animal Class
 
+            var lizard = new Reptile()
+            {
+                IsColdBlooded = true,
+                IsScaly = true,
+                Habitat = "swamp",
+                CanGrowtail = true
+            };
+
+
+            var myAnimals = new Animal[] { myBird, lizard};
+            foreach(var animal in myAnimals)
+            {
+                Console.WriteLine($"Alive:{animal.IsAlive}");
+                Console.WriteLine($"Age:{animal.Age} years old");
+                Console.WriteLine($"It has {animal.LegCount} legs");
+                Console.WriteLine($"It lives by {animal.LandSeaAir}");
+            }
 
 
 
